@@ -1,0 +1,109 @@
+ion-content{
+
+    ion-grid{
+        height: 100vh;
+    }
+
+.back-icon{
+    font-size: 30px;
+}
+    .background-SignIn{
+        max-width: 105%;
+        border: 0;
+        max-height: 100%;
+        position: absolute;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    .logo-SignIn{
+        width: 100px;
+        height: 100px;
+        display: block;
+        max-width: 32%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2%;
+        border: 3px solid #fff;
+        border-radius: 50%;
+    }
+    .addPhoto{
+        width: 36px;
+        --background: url('../../../assets/images/btnAddImage.svg') 0 0/100% 100% no-repeat;
+        height: 36px;
+        display: block;
+        margin-left: auto;
+        margin-right: 34%;
+        margin-top: -13%;
+        --border-radius: 50% !important;
+        ion-icon{
+            font-size: 34px;
+        }
+    }
+
+    .row-top-margin{
+        margin-top: 10%;
+        margin-right: -4px;
+        margin-left: -4px;
+    }
+
+    .row-btn-margin{
+        margin-top:-3%;
+        margin-right: -4px;
+        margin-left: -4px;
+    }
+
+    ion-item{
+        ion-icon{
+            margin-right: 16px;
+        }
+    }
+
+    ion-button{
+        margin-right:10px;
+        margin-left	:10px;
+    }
+    .btn-sign{
+        font-family: var(--ion-font-family-bold);
+        box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
+
+    }
+
+    .btn-forget-password{
+        font-size: 0.9em;
+        a{
+            color: var(--ion-color-light);
+            font-size: 0.9em;
+            margin-left: 4px;
+        }
+    }
+
+    .btn-create-account{
+        font-family: var(--ion-font-family-bold);
+    }
+
+    .bottm-fotter{
+        position: absolute;
+        bottom: 0;
+        align-items: center;
+        width: 100%;
+   
+    }
+}
+
+
+// from 600 to up
+@media (min-width: 600px) {
+    .rowBottom{
+        margin-top: -10%;
+    }
+    .background-SignIn{
+        min-width: 100%;
+    }
+
+.addPhoto{
+    margin-right: 43% !important;
+    margin-top: -5% !important;
+}
+
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Tuhoo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

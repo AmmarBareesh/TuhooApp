@@ -1,0 +1,54 @@
+<ion-header>
+</ion-header>
+<ion-content>
+  <ion-img class="background-SignIn" src="assets/images/signIn/choosePageBackground.svg"></ion-img>
+  <ion-grid>
+    <ion-row class="rowBottom">
+      <ion-col size-md="12" size-lg="12" size-xs="12">
+        <ion-img class="logo-SignIn" src="assets/images/signIn/Logo.svg"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center class="margin-plus-row">
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <ion-card>
+          <form [formGroup]="loginForm">
+            <ion-item>
+              <ion-icon slot="start" name="person" [color]="loginForm.get('userName').dirty  ? 'primary' : 'medium'">
+              </ion-icon>
+              <ion-label position="stacked" color="medium">Username</ion-label>
+              <ion-input formControlName="userName" name="userName" type="text" inputmode="text" required="true">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-icon slot="start" name="lock" [color]="loginForm.get('userpassword').dirty  ? 'primary' : 'medium'">
+              </ion-icon>
+              <ion-label position="stacked" color="medium">password</ion-label>
+              <ion-input formControlName="userpassword" name="userpassword" type="password" inputmode="password"
+                required="true"> </ion-input>
+            </ion-item>
+          </form>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center class="margin-plus-row">
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <ion-button class="btn-sign" [disabled]="!loginForm.valid" (click)="loginTapped()" color="secondary"
+          expand="block" size="large">Sign In</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <ion-button class="btn-forget-password" color="light" fill="clear" size="small" expand="block"
+          [routerLink]="['/public/forgot-password']" routerDirection="forward">Forgot Password
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="btn-create-account">
+      <ion-col size-sm="12" size-md="12" size-lg="12">
+        <ion-button class="btn-create" color="light" fill="clear" size="default" expand="block"
+          [routerLink]="['/public/register']" routerDirection="forward">Create Account
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

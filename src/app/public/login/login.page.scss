@@ -1,0 +1,84 @@
+ion-content{
+    font-family: var(--ion-font-family-bold) !important;
+
+    .background-SignIn{
+        max-width: 100%;
+        border: 0;
+        max-height: 100%;
+        position: absolute;
+        z-index: 0;
+        overflow: hidden;
+    }
+
+    .logo-SignIn{
+        position: relative;
+        display: block;
+        max-width: 20%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 22%;
+
+    }
+    .margin-plus-row{
+        margin-right: -4px;
+        margin-left: -4px;
+    }
+    ion-input{
+        color:var(--ion-color-primary);
+    }
+    
+    ion-item{
+        ion-icon{
+            margin-right: 12px;
+        }
+    }
+    
+    ion-button{
+        margin-right:10px;
+        margin-left	:10px;
+        font-family: var(--ion-font-family-bold);
+
+    }
+    .btn-sign{
+        margin-top: -10px;
+        box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
+    }
+
+    .btn-forget-password{
+        font-family: var(--ion-font-family);
+        text-decoration: underline;
+        font-size: 12px;
+        margin-top: -2px;
+    }
+    .btn-create-account{
+        width: 100%;
+        text-decoration: underline;
+        position: relative;
+        margin-top:50%; 
+        align-items: center;
+
+        .btn-create{
+            font-size:1.1em;
+        }
+    }
+
+    .bottm-fotter{
+        width: 100%;
+        position: relative;
+        margin-top:50%; 
+    }
+}
+
+@media (min-width: 600px) {
+    ion-grid{
+        height: 100vh;
+    }
+    .background-SignIn{
+        min-width: 100%;
+    }
+
+    .logo-SignIn{
+        max-width:6% !important;
+        margin-top:16% !important;
+    }
+}

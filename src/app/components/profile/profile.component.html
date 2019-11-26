@@ -1,0 +1,144 @@
+<ion-slides #slider [options]="sliderOptions" (ionSlideDrag)="hideElementDiv()">
+  <ion-slide>
+    <ion-card>
+      <ion-card-content>
+        <div style="background: url('assets/images/addressheader.png'); height: 100px; background-size: cover"></div>
+      </ion-card-content>
+
+      <ion-list>
+        <div style="display: block; text-align: start; padding-inline-start: 30px; border-bottom: 1px dashed #d4d4d4;">
+          <div style=" margin: 15px 0;">
+            <div><b style="font-size: 14pt">Home</b></div>
+            <div>Address 1</div>
+            <div>Address 2</div>
+          </div>
+        </div>
+        <div style="display: block; text-align: start; padding-inline-start: 30px; border-bottom: 1px dashed #d4d4d4;">
+          <div style=" margin: 15px 0;">
+            <div><b style="font-size: 14pt">Work</b></div>
+            <div>Address 1</div>
+            <div>Address 2</div>
+          </div>
+        </div>
+        <div style="display: block; text-align: start; padding-inline-start: 30px; border-bottom: 1px dashed #d4d4d4;">
+          <div style=" margin: 15px 0;">
+            <div><b style="font-size: 14pt">Location</b></div>
+            <div>Address 1</div>
+            <div>Address 2</div>
+          </div>
+        </div>
+      </ion-list>
+    </ion-card>
+  </ion-slide>
+
+  <ion-slide>
+    <div #divright class="fack-card-right"></div>
+    <ion-card>
+      <ion-card-content>
+        <div style="background: url('assets/images/Profileheader.png'); height: 100px;">
+          <div style="position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, 0%);">
+            <ion-avatar style=" border: 2px solid #fff ">
+              <img style="width: 60px;" src="assets/images/Photo.png" />
+            </ion-avatar>
+          </div>
+        </div>
+      </ion-card-content>
+
+      <ion-list style="margin-top: 25px">
+        <ion-row style="display: table; border-bottom: 1px dashed #d4d4d4">
+          <ion-col size="2" style="display: table-cell !important; vertical-align: middle">
+            <ion-icon name="person" style="font-size: x-large"> </ion-icon>
+          </ion-col>
+          <ion-col size="10" style="display: table-cell !important">
+            <ion-item lines="none">
+              <ion-label position="floating">Username</ion-label>
+              <ion-input style="color: var(--ion-color-primary); font-size: 12pt"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row style="display: table; border-bottom: 1px dashed #d4d4d4">
+          <ion-col size="2" style="display: table-cell !important; vertical-align: middle">
+            <ion-icon name="mail" style="font-size: x-large"> </ion-icon>
+          </ion-col>
+          <ion-col size="10" style="display: table-cell !important">
+            <ion-item lines="none">
+              <ion-label position="floating">Email</ion-label>
+              <ion-input style="color: var(--ion-color-primary); font-size: 12pt"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row style="display: table; border-bottom: 1px dashed #d4d4d4">
+          <ion-col size="2" style="display: table-cell !important; vertical-align: middle">
+            <ion-icon name="phone-portrait" style="font-size: x-large">
+            </ion-icon>
+          </ion-col>
+          <ion-col size="10" style="display: table-cell !important">
+            <ion-item lines="none">
+              <ion-label position="floating">Phone Number</ion-label>
+              <ion-input style="color: var(--ion-color-primary); font-size: 12pt"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row style="display: table; border-bottom: 1px dashed #d4d4d4">
+          <ion-col size="2" style="display: table-cell !important; vertical-align: middle">
+            <ion-icon name="lock" style="font-size: x-large"> </ion-icon>
+          </ion-col>
+          <ion-col size="10" style="display: table-cell !important">
+            <ion-item lines="none">
+              <ion-label position="floating">Password</ion-label>
+              <ion-input style="color: var(--ion-color-primary); font-size: 12pt"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+    </ion-card>
+
+    <div #divleft class="fack-card-left"></div>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-card>
+      <ion-card-content>
+        <div style="background: url('assets/images/addressheader.png'); height: 100px; background-size: cover"></div>
+      </ion-card-content>
+
+      <ion-list>
+        <div style="display: block; text-align: start; padding-inline-start: 30px; border-bottom: 1px dashed #d4d4d4;">
+          <div style=" margin: 15px 0;">
+            <div><b style="font-size: 14pt">Home</b></div>
+            <div>Address 1</div>
+            <div>Address 2</div>
+          </div>
+        </div>
+        <div style="display: block; text-align: start; padding-inline-start: 30px; border-bottom: 1px dashed #d4d4d4;">
+          <div style=" margin: 15px 0;">
+            <div><b style="font-size: 14pt">Work</b></div>
+            <div>Address 1</div>
+            <div>Address 2</div>
+          </div>
+        </div>
+        <div style="display: block; text-align: start; padding-inline-start: 30px; border-bottom: 1px dashed #d4d4d4;">
+          <div style=" margin: 15px 0;">
+            <div><b style="font-size: 14pt">Location</b></div>
+            <div>Address 1</div>
+            <div>Address 2</div>
+          </div>
+        </div>
+      </ion-list>
+    </ion-card>
+  </ion-slide>
+</ion-slides>
+
+<div text-center>
+  <ion-button color="warning" style="--border-radius: 50%; --padding-start: 9px;
+        --padding-end: 9px; margin: 20px">
+    <ion-icon name="create"> </ion-icon>
+  </ion-button>
+
+  <ion-button color="primary" style="--border-radius: 50%; --padding-start: 9px;
+      --padding-end: 9px; margin: 20px">
+    <ion-icon name="add"> </ion-icon>
+  </ion-button>

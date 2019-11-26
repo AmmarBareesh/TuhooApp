@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>sub-categorie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor='let data of subCategorieData'>
+    <ion-img [src]='data.image'>
+
+    </ion-img>
+    <h1>{{data.code}}</h1>
+  </ion-card>
+</ion-content>

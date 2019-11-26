@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      
+        <ion-menu-button autoHide="false"></ion-menu-button>
+          <!-- <ion-button fill="clear">
+        <ion-icon color="light" name="menu"></ion-icon>
+        </ion-button> -->
+    </ion-buttons>
+    <ion-title class="ion-text-center">
+      {{ title }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" [routerLink]="['/cart']" routerLinkActive="forword">
+        <ion-icon ios="ios-cart" md="md-cart"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" [routerLink]="['/search']" routerLinkActive="forword">
+        <ion-icon ios="ios-search" md="md-search" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-segment color="primary" value="categories" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="categories">
+      <ion-label>Categories</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="trending">
+      <ion-label>Trending</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="profile">
+      <ion-label>Profile</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content *ngIf="categories">
+  <app-categories></app-categories>
+</ion-content>
+
+<ion-content *ngIf="trending">
+  <app-trending></app-trending>
+</ion-content>
+
+
+<ion-content *ngIf='profile' class="profile-background">
+    <app-profile></app-profile>
+</ion-content>
