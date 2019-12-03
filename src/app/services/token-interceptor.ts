@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class TokenInterceptor implements HttpInterceptor {
 
   constructor(private router: Router,
-              private toastController: ToastController) { }
+    private toastController: ToastController) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -38,7 +38,6 @@ export class TokenInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          console.log('event--->>>', event);
         }
         return event;
       }),

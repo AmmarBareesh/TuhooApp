@@ -15,9 +15,9 @@ export class ForgotPasswordPage implements OnInit {
   loginForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private shareUi: ShareUiService,
-              private auth: AuthenticationService,
-              private router: Router) {
+    private shareUi: ShareUiService,
+    private auth: AuthenticationService,
+    private router: Router) {
     this.loginForm = this.formBuilder.group({
       email: new FormControl('', Validators.compose([
         Validators.required,
@@ -34,7 +34,6 @@ export class ForgotPasswordPage implements OnInit {
   forgotPasswordTapped() {
     this.shareUi.ShowLoader();
     this.auth.forgotPassword(this.loginForm.value.email).subscribe(data => {
-      console.log(data);
       if (data.status === false) {
         this.shareUi.loading.dismiss();
         this.shareUi.ShowErrorAlert(data.message, data.errors.email);
@@ -42,7 +41,9 @@ export class ForgotPasswordPage implements OnInit {
       } else {
         setTimeout(() => {
           this.shareUi.loading.dismiss();
-          this.router.navigate(['public', 'reset-password']);
+          this.shareUi.ShowErrorAlert('Check Your Email', data.message);
+          this.loginForm.reset();
+          this.router.navigate(['chose-login']);
         }, 2000);
       }
     }, err => {

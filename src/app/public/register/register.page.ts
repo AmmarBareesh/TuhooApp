@@ -27,13 +27,13 @@ export class RegisterPage implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder,
-              private auth: AuthenticationService,
-              private shareUi: ShareUiService,
-              private tokenService: TokenService,
-              private router: Router,
-              private datePipe: DatePipe,
-              private camera: Camera,
-              private sanitizer: DomSanitizer) {
+    private auth: AuthenticationService,
+    private shareUi: ShareUiService,
+    private tokenService: TokenService,
+    private router: Router,
+    private datePipe: DatePipe,
+    private camera: Camera,
+    private sanitizer: DomSanitizer) {
 
     this.loginForm = this.formBuilder.group({
       userpassword: new FormControl('', Validators.compose([
@@ -60,32 +60,35 @@ export class RegisterPage implements OnInit {
   }
 
   RegisterUser() {
-    if (!this.isTakeImage) {
-      this.shareUi.ShowErrorAlert('No image selected', ' You must upload profile picture');
+    if (navigator.onLine) {
+      if (!this.isTakeImage) {
+        this.shareUi.ShowErrorAlert('No image selected', ' You must upload profile picture');
+      } else {
+        this.birthDate = this.datePipe.transform(this.loginForm.value.birthday, 'yyyy-MM-dd');
+        this.shareUi.ShowLoader();
+        // tslint:disable-next-line:max-line-length
+        this.auth.customerRegister(this.loginForm.value.userName, this.loginForm.value.email, this.loginForm.value.userpassword, this.birthDate, this.ImageToSend).subscribe(data => {
+          this.auth.loginState();
+          setTimeout(() => {
+            this.shareUi.loading.dismiss();
+          }, 2000);
+          this.router.navigate(['/members/home']);
+        }, err => {
+          setTimeout(() => {
+            this.shareUi.loading.dismiss();
+            if (err) {
+              this.shareUi.ShowErrorAlert('Error creating new account', err.message);
+              this.loginForm.reset();
+              this.router.navigate(['members', 'home']);
+            } else {
+              this.shareUi.ShowErrorAlert('Something went wrong', err.message);
+              this.loginForm.reset();
+            }
+          }, 2000);
+        });
+      }
     } else {
-      this.birthDate = this.datePipe.transform(this.loginForm.value.birthday, 'yyyy-MM-dd');
-      this.shareUi.ShowLoader();
-      // tslint:disable-next-line:max-line-length
-      this.auth.customerRegister(this.loginForm.value.userName, this.loginForm.value.email, this.loginForm.value.userpassword, this.birthDate, this.ImageToSend).subscribe(data => {
-        this.auth.loginState();
-        console.log(data);
-        setTimeout(() => {
-          this.shareUi.loading.dismiss();
-        }, 2000);
-        this.router.navigate(['/members/home']);
-      }, err => {
-        setTimeout(() => {
-          this.shareUi.loading.dismiss();
-          if (err) {
-            this.shareUi.ShowErrorAlert('Error creating new account', err.message);
-            this.loginForm.reset();
-            this.router.navigate(['members', 'home']);
-          } else {
-            this.shareUi.ShowErrorAlert('Something went wrong', err.message);
-            this.loginForm.reset();
-          }
-        }, 2000);
-      });
+      this.shareUi.ShowErrorAlert('No internet conection', 'check if wifi is working');
     }
   }
 
@@ -108,7 +111,6 @@ export class RegisterPage implements OnInit {
       const imageName = date + '.jpeg';
       this.imageBlob = this.dataURItoBlob(img);
       const storedPhoto = new File([this.imageBlob], imageName, { type: 'image/jpeg' });
-      console.log(storedPhoto);
     });
   }
 
